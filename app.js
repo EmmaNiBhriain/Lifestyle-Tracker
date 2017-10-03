@@ -29,6 +29,11 @@ app.get('/workouts', workouts.findAll);
 app.get('/workouts/:id', workouts.findById);
 app.post('/workouts', workouts.addWorkout); // test data: {"id":101110, "workouttype": "Run", "duration" : 30, "description": "Uphill Run with 30 second recovery inbetween", "time": "14:30", "date": 24062017, "intensity": 9}
 app.put('/workouts/:id/intensity', workouts.changeIntensity);
+app.put('/workouts/:id/workouttype', workouts.changeType);
+app.put('/workouts/:id/duration', workouts.changeDuration);
+app.put('/workouts/:id/description', workouts.changeDescription);
+app.put('/workouts/:id/time', workouts.changeTime);
+app.put('/workouts/:id/date', workouts.changeDate);
 app.delete('/workouts/:id', workouts.deleteDonation);
 
 // catch 404 and forward to error handler

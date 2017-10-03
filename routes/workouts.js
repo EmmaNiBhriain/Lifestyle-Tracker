@@ -48,6 +48,37 @@ router.changeIntensity=function(req,res){
     workout.intensity +=1;
 };
 
+router.changeType = function(req,res){
+    //update the type of workout
+    var workout = getByValue(workouts, req.params.id);
+    workout.workouttype = "changed"; //TODO read in the updated value
+};
+
+router.changeDuration = function(req, res){
+    //update the duration of the workout
+    var workout = getByValue(workouts, req.params.id);
+    workout.duration = "changed";
+};
+
+router.changeDescription = function(req, res){
+    //update the duration of the workout
+    var workout = getByValue(workouts, req.params.id);
+    workout.description = "changed";
+};
+
+router.changeTime = function(req, res){
+    //update the duration of the workout
+    var workout = getByValue(workouts, req.params.id);
+    workout.time = "changed";
+};
+
+router.changeDate = function(req, res){
+    //update the duration of the workout
+    var workout = getByValue(workouts, req.params.id);
+    workout.date = "changed";
+};
+
+
 router.deleteDonation = function(req, res) {
     //Delete the selected donation based on its id
     var workout = getByValue(workouts,req.params.id);
