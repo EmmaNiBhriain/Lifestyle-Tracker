@@ -34,7 +34,7 @@ app.put('/workouts/:id/duration', workouts.changeDuration);
 app.put('/workouts/:id/description', workouts.changeDescription);
 app.put('/workouts/:id/time', workouts.changeTime);
 app.put('/workouts/:id/date', workouts.changeDate);
-app.delete('/workouts/:id', workouts.deleteDonation);
+app.delete('/workouts/:id', workouts.deleteWorkout);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

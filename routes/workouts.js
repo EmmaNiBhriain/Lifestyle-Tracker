@@ -45,42 +45,42 @@ router.addWorkout = function(req,res){
 router.changeIntensity=function(req,res){
     //change the level of intensity
     var workout = getByValue(workouts, req.params.id);
-    workout.intensity +=1;
+    workout.intensity = req.body.intensity;
 };
 
 router.changeType = function(req,res){
     //update the type of workout
     var workout = getByValue(workouts, req.params.id);
-    workout.workouttype = "changed"; //TODO read in the updated value
+    workout.workouttype = req.body.workouttype; //TODO read in the updated value
 };
 
 router.changeDuration = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
-    workout.duration = "changed";
+    workout.duration = req.body.duration;
 };
 
 router.changeDescription = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
-    workout.description = "changed";
+    workout.description = req.body.description;
 };
 
 router.changeTime = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
-    workout.time = "changed";
+    workout.time = req.body.time;
 };
 
 router.changeDate = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
-    workout.date = "changed";
+    workout.date = req.body.date;
 };
 
 
-router.deleteDonation = function(req, res) {
-    //Delete the selected donation based on its id
+router.deleteWorkout = function(req, res) {
+    //Delete the selected workout based on its id
     var workout = getByValue(workouts,req.params.id);
     var index = workouts.indexOf(workout);
 
