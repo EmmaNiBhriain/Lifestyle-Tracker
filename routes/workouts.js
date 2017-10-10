@@ -22,6 +22,21 @@ router.findById = function(req,res){
         res.json({message:'Workout Not Found!'})
 };
 
+/*router.findByDate = function(req,res){
+    var workouts = getByDate(workouts, req.params.date);
+
+    if (workouts != null)
+        res.json(workouts);
+    else
+        res.json({message:'Date Not Found!'})
+}
+
+function getByDate(arr,date){
+    var result = arr.filter(function(obj){return obj.date == date;});
+    return result ? result[0] : null;
+}
+*/
+
 router.addWorkout = function(req,res){
     var id = req.body.id;//Math.floor((Math.random()*1000000)+1); //random id
     var workouttype = req.body.workouttype;
@@ -46,36 +61,42 @@ router.changeIntensity=function(req,res){
     //change the level of intensity
     var workout = getByValue(workouts, req.params.id);
     workout.intensity = req.body.intensity;
+    res.json({message:'Intensity Updated'});
 };
 
 router.changeType = function(req,res){
     //update the type of workout
     var workout = getByValue(workouts, req.params.id);
-    workout.workouttype = req.body.workouttype; //TODO read in the updated value
+    workout.workouttype = req.body.workouttype;
+    res.json({message:'Workout Type Updated'});
 };
 
 router.changeDuration = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
     workout.duration = req.body.duration;
+    res.json({message:'Duration Updated'});
 };
 
 router.changeDescription = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
     workout.description = req.body.description;
+    res.json({message:'Description Updated'});
 };
 
 router.changeTime = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
     workout.time = req.body.time;
+    res.json({message:'Time Updated'});
 };
 
 router.changeDate = function(req, res){
     //update the duration of the workout
     var workout = getByValue(workouts, req.params.id);
     workout.date = req.body.date;
+    res.json({message:'Date Updated'});
 };
 
 
