@@ -28,7 +28,7 @@ app.use('/users', users);
 app.get('/workouts', workouts.findAll);
 app.get('/workouts/:id', workouts.findById);
 //app.get('workouts/:date/date', workouts.findByDate);
-app.post('/workouts', workouts.addWorkout); // test data: {"id":101110, "workouttype": "Run", "duration" : 30, "description": "Uphill Run with 30 second recovery inbetween", "time": "14:30", "date": 24062017, "intensity": 9}
+app.post('/workouts', workouts.addWorkout); // test data: {"id":101110, "workouttype": "Run", "duration" : 30, "description": "Uphill Run with 30 second recovery inbetween", "time": "14:30", "date": "2017-10-5", "intensity": 9}
 app.put('/workouts/:id/intensity', workouts.changeIntensity);
 app.put('/workouts/:id/workouttype', workouts.changeType);
 app.put('/workouts/:id/duration', workouts.changeDuration);
