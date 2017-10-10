@@ -1,11 +1,14 @@
 var workouts = require('../models/workouts');
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
 
 router.findAll = function(req,res){
     //Return JSON version of the list of workouts
     res.json(workouts);
 };
+
+
 
 
 function getByValue(arr,id){
@@ -114,4 +117,14 @@ router.deleteWorkout = function(req, res) {
         res.json({ message: 'Workout NOT Deleted!'});
 };
 
+mongoose.connect('mongodb://localhost:27017/lifestyledb');
+
+var db = mongoose.connection;
+
+db.on('error', function (err) {
+    console.log('connection error', err);
+});
+db.once('open', function () {
+    console.log('connected to database');
+});
 module.exports = router;

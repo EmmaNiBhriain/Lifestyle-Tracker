@@ -1,6 +1,16 @@
-var workouts = [
-    {id:101010, workouttype: 'Run', duration : 30, description: 'Uphill Run with 30 second recovery inbetween', time: '14:30', date: 24062017, intensity: 9},
-    {id:101011, workouttype: 'Walk', duration : 60, description: 'Low Intensity Walk to the shop and back', time: '17:00',date: 25062017, intensity: 9}
-]
+var mongoose = require('mongoose'); //allow interaction with the application where mongoose is imported
 
-module.exports = workouts;
+/**
+ * Define a model with a list of attributes and the typed of data that will be stored.
+ * @type {mongoose.Schema}
+ */
+var WorkoutSchema = new mongoose.Schema({
+    workouttype: String,
+    duration: Number,
+    description: String,
+    time: String,
+    date: Date,  //use the mongoose data type 'Date'
+    intensity: Number
+});
+
+module.exports = mongoose.model('Workout', WorkoutSchema);
