@@ -59,6 +59,20 @@ router.findByDate = function(req, res) {
     })
 }
 
+/**
+ * Return all workouts with the specified workout type
+ * @param req
+ * @param res
+ */
+router.findByType = function(req, res) {
+    Workout.find({"workouttype": req.params.workouttype}, function(err, workouts){
+        if(err)
+            res.json({message: 'Date not Found', errmsg: err});
+        else
+            res.json(workouts);
+    })
+}
+
 
 /**
 * Add a new workout to the mongo database

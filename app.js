@@ -29,6 +29,7 @@ app.get('/workouts', workouts.findAll);  //return all workouts
 app.get('/workouts/:id', workouts.findById);  //return a single workout
 app.get('/workouts/intensity/:intensity', workouts.findByIntensity);  //return all workouts with a certain intensity
 app.get('/workouts/date/:date', workouts.findByDate);  //return all workouts with a certain date
+app.get('/workouts/workouttype/:workouttype', workouts.findByType);  //return all workouts with a certain date
 app.post('/workouts', workouts.addWorkout);  //add a new workout
 app.put('/workouts/:id/intensity', workouts.changeIntensity);  //change the intensity of a workout
 app.put('/workouts/:id/workouttype', workouts.changeType);  //change the type of workout
