@@ -3,6 +3,11 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
+/**
+ * Return all workouts
+ * @param req
+ * @param res
+ */
 router.findAll = function(req,res){
     //Use the Workout model to find all the workout
     Workout.find(function(err,workouts){
@@ -12,6 +17,11 @@ router.findAll = function(req,res){
     })
 };
 
+/**
+ * Return the data of a selected workout
+ * @param req
+ * @param res
+ */
 router.findById = function(req,res) {
     Workout.find({"_id": req.params.id}, function (err, workout) {
         if (err)
@@ -21,21 +31,39 @@ router.findById = function(req,res) {
     })
 }
 
-/*router.findByDate = function(req,res){
-    var workouts = getByDate(workouts, req.params.date);
-
-    if (workouts != null)
-        res.json(workouts);
-    else
-        res.json({message:'Date Not Found!'})
+/**
+ * Return all workouts with the specified intensity
+ * @param req
+ * @param res
+ */
+router.findByIntensity = function(req, res) {
+    Workout.find({"intensity": req.params.intensity}, function(err, workouts){
+        if(err)
+            res.json({message: 'Workout intensity not Found', errmsg: err});
+        else
+            res.json(workouts);
+    })
 }
 
-function getByDate(arr,date){
-    var result = arr.filter(function(obj){return obj.date == date;});
-    return result ? result[0] : null;
+/**
+ * Return all workouts on a particular day
+ * @param req
+ * @param res
+ */
+router.findByDate = function(req, res) {
+    Workout.find({"date": req.params.date}, function(err, workouts){
+        if(err)
+            res.json({message: 'Date not Found', errmsg: err});
+        else
+            res.json(workouts);
+    })
 }
+
+
+/**
+* Add a new workout to the mongo database
+* The parameters of a workout object are: workouttype, duration, description, time, date, intensity
 */
-
 router.addWorkout = function(req,res){
     var workout = new Workout();
     workout.intensity = req.body.intensity;
@@ -46,7 +74,8 @@ router.addWorkout = function(req,res){
     workout.workouttype = req.body.workouttype;
     console.log('Adding workout:' + JSON.stringify(workout));
 
-    //save the workout and check for errors
+    /*save the workout and check for errors
+      If no errors occur, return the message 'Workout Added!' along with the details of the new workout*/
     workout.save(function(err){
         if(err)
             res.send(err);
@@ -55,13 +84,18 @@ router.addWorkout = function(req,res){
     });
 }
 
+/**
+ * Change the intensity field of a workout
+ * @param req
+ * @param res
+ */
 router.changeIntensity=function(req,res) {
 
     Workout.findById(req.params.id, function(err,workout){
         if (err)
             res.send(err);
         else {
-            workout.intensity = req.body.intensity;
+            workout.intensity = req.body.intensity;  //assign the intensity field of the workout the new value
             workout.save(function(err) {
                 if (err)
                     res.send(err);
@@ -72,9 +106,12 @@ router.changeIntensity=function(req,res) {
     });
 }
 
-
+/**
+ * Change the workouttype field of the workout
+ * @param req
+ * @param res
+ */
 router.changeType = function(req,res){
-    //update the type of workout
     Workout.findById(req.params.id, function(err,workout){
         if(err)
             res.send(err);
@@ -90,8 +127,12 @@ router.changeType = function(req,res){
     })
 };
 
+/**
+ * Change the value of the duration field of the selected workout
+ * @param req
+ * @param res
+ */
 router.changeDuration = function(req, res){
-    //update the duration of the workout
     Workout.findById(req.params.id, function(err,workout){
         if(err)
             res.send(err);
@@ -107,8 +148,12 @@ router.changeDuration = function(req, res){
     })
 };
 
+/**
+ * Change the description of a workout
+ * @param req
+ * @param res
+ */
 router.changeDescription = function(req, res){
-    //update the description of the workout
     Workout.findById(req.params.id, function(err,workout){
         if(err)
             res.send(err);
@@ -124,6 +169,11 @@ router.changeDescription = function(req, res){
     })
 };
 
+/**
+ * Change the time value of the workout
+ * @param req
+ * @param res
+ */
 router.changeTime = function(req, res){
     //update the duration of the workout
     Workout.findById(req.params.id, function(err,workout){
@@ -141,6 +191,11 @@ router.changeTime = function(req, res){
     })
 };
 
+/**
+ * Change the date of the workout
+ * @param req
+ * @param res
+ */
 router.changeDate = function(req, res){
     //update the duration of the workout
     Workout.findById(req.params.id, function(err,workout){
@@ -158,7 +213,11 @@ router.changeDate = function(req, res){
     })
 };
 
-
+/**
+ * Delete the selected workout
+ * @param req
+ * @param res
+ */
 router.deleteWorkout = function(req, res) {
     Workout.findByIdAndRemove(req.params.id, function (err) {
         if (err)
@@ -168,7 +227,8 @@ router.deleteWorkout = function(req, res) {
     })
 }
 
-mongoose.connect('mongodb://localhost:27017/lifestyledb');
+//useMongoClient is added as the default connection logic is deprecated
+mongoose.connect('mongodb://localhost:27017/lifestyledb', {useMongoClient: true});
 
 var db = mongoose.connection;
 

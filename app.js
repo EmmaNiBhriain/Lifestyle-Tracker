@@ -25,17 +25,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.get('/workouts', workouts.findAll);
-app.get('/workouts/:id', workouts.findById);
-//app.get('workouts/:date/date', workouts.findByDate);
-app.post('/workouts', workouts.addWorkout); // test data: {"id":101110, "workouttype": "Run", "duration" : 30, "description": "Uphill Run with 30 second recovery inbetween", "time": "14:30", "date": "2017-10-5", "intensity": 9}
-app.put('/workouts/:id/intensity', workouts.changeIntensity);
-app.put('/workouts/:id/workouttype', workouts.changeType);
-app.put('/workouts/:id/duration', workouts.changeDuration);
-app.put('/workouts/:id/description', workouts.changeDescription);
-app.put('/workouts/:id/time', workouts.changeTime);
-app.put('/workouts/:id/date', workouts.changeDate);
-app.delete('/workouts/:id', workouts.deleteWorkout);
+app.get('/workouts', workouts.findAll);  //return all workouts
+app.get('/workouts/:id', workouts.findById);  //return a single workout
+app.get('/workouts/intensity/:intensity', workouts.findByIntensity);  //return all workouts with a certain intensity
+app.get('/workouts/date/:date', workouts.findByDate);  //return all workouts with a certain date
+app.post('/workouts', workouts.addWorkout);  //add a new workout
+app.put('/workouts/:id/intensity', workouts.changeIntensity);  //change the intensity of a workout
+app.put('/workouts/:id/workouttype', workouts.changeType);  //change the type of workout
+app.put('/workouts/:id/duration', workouts.changeDuration);  //change the duration of a workout
+app.put('/workouts/:id/description', workouts.changeDescription);  //change the description of a workout
+app.put('/workouts/:id/time', workouts.changeTime);  //change the time of a workout
+app.put('/workouts/:id/date', workouts.changeDate);  //change the date of a workout
+app.delete('/workouts/:id', workouts.deleteWorkout);  //delete a workout
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
