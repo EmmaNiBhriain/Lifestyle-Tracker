@@ -25,6 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+/**
+ * Endpoints for the workouts model: GET, POST, PUT and DELETE
+ */
 app.get('/workouts', workouts.findAll);  //return all workouts
 app.get('/workouts/:id', workouts.findById);  //return a single workout
 app.get('/workouts/intensity/:intensity', workouts.findByIntensity);  //return all workouts with a certain intensity
