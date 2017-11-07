@@ -9,6 +9,11 @@ app.config(function($routeProvider){
         controller : 'mainController'
     })
 
+    //route for the user profile page
+        .when('/profile', {
+            templateUrl : 'pages/profile.ejs',
+            controller : 'profileController'
+    })
     //route for the workouts page
         .when('/workouts',{
             templateUrl : 'pages/workouts.ejs',
