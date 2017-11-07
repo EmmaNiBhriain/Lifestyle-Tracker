@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="LifestyleTrackerWebApp">
+<html ng-app="LifestyleTracker">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -8,8 +8,13 @@
     <!-- used for css used for the navigation bar -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 
+    <!-- used for displaying main content swapped in from ejs files -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.js"></script>
+
     <script src="/javascripts/angularApp.js"></script>
     <script src="/javascripts/controllers/maincontroller.js"></script>
+    <script src="/javascripts/controllers/workoutscontroller.js"></script>
   </head>
 
   <body>
@@ -26,6 +31,10 @@
               <i class="fa fa-sign-in"></i>
               Log In
             </button>
+            <button type="button" class="btn btn-default navbar-btn btn-primary" href="#">
+              <i class="fa fa-pencil-in"></i>
+              Register
+            </button>
           </div>
           <li><a href="#/" style="color: black";>Home</a></li>
           <li><a href="#workouts" style="color: black";>View User Workouts</a></li>
@@ -35,11 +44,11 @@
 
     <!--Main content-->
     <div id="main">
-      <div ng-view></div>
+      <div data-ng-view></div>
     </div>
 
     <footer class="text-center">
-      <p>LifeStyle Tracker</p>
+      <p>LifeStyle Tracker Footer</p>
     </footer>
   </body>
 </html>
