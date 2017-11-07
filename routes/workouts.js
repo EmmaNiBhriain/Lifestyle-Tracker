@@ -43,7 +43,7 @@ router.findByIntensity = function(req, res) {
         else
             res.json(workouts);
     })
-}
+};
 
 /**
  * Return all workouts on a particular day
@@ -57,7 +57,7 @@ router.findByDate = function(req, res) {
         else
             res.json(workouts);
     })
-}
+};
 
 /**
  * Return all workouts with the specified workout type
@@ -118,7 +118,7 @@ router.changeIntensity=function(req,res) {
             });
         }
     });
-}
+};
 
 /**
  * Change the workouttype field of the workout

@@ -43,6 +43,18 @@ app.put('/workouts/:id/time', workouts.changeTime);  //change the time of a work
 app.put('/workouts/:id/date', workouts.changeDate);  //change the date of a workout
 app.delete('/workouts/:id', workouts.deleteWorkout);  //delete a workout
 
+/**
+ * Endpoints for the users moodel
+ */
+app.get('/users', users.findAll); //return all users
+app.get('/users/:userid', users.findByUserid); //find a particular user based on their userid
+app.get('/users/:userid/workouts', users.findUserWorkouts); //return all workouts of a particular user
+app.put('/users/:id/firstname', users.updateFirstname);
+app.put('/users/:id/surname', users.updateSurname);
+app.put('/users/:id/dateofbirth', users.updateDateofbirth);
+app.post('/users', users.addUser); //add a new user
+app.delete('/users/:id', users.deleteUser); //delete a user
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

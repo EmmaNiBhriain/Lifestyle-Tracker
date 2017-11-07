@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="LifestyleTrackerWebApp">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!--font-awesome used for icons such as heart icon and login buttons -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" />
+    <!-- used for css used for the navigation bar -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+
+    <script src="/javascripts/angularApp.js"></script>
+    <script src="/javascripts/controllers/maincontroller.js"></script>
   </head>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %>. Here you can keep track of your workouts, your meals and purchase health products!</p>
-    <h2>Current Features:</h2>
-    <p>
-      <li>Add a workout</li>
-      <li>Delete a workout</li>
-      <li>View all workouts</li>
-      <li>View a particular workout</li>
-      <li>Update each field of a workout</li>
-    </p>
+  <!--Navigation bar-->
+    <nav class="navbar navbar-light bg-faded navbar-static-top" style="background-color: mediumpurple" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#/" style="color: white;";><i class="fa fa-heart" style="color: red;"></i>  Lifestyle Tracker</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <div class="navbar-right">
+            <button type="button" class="btn btn-default navbar-btn btn-success" href="#">
+              <i class="fa fa-sign-in"></i>
+              Log In
+            </button>
+          </div>
+          <li><a href="#/" style="color: black";>Home</a></li>
+          <li><a href="#workouts" style="color: black";>View User Workouts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!--Main content-->
+    <div id="main">
+      <div ng-view></div>
+    </div>
+
+    <footer class="text-center">
+      <p>LifeStyle Tracker</p>
+    </footer>
   </body>
 </html>

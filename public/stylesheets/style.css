@@ -14,3 +14,9 @@ h1,h2 {
   background: -moz-linear-gradient(left, aliceblue, blueviolet); /*for Firefox*/
   background: linear-gradient(left, aliceblue, blueviolet); /*standard syntax*/
 }
+
+a {
+  color: #536872;
+  text-decoration: none;
+  background-color: transparent;
+}
