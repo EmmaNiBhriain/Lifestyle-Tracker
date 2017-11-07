@@ -1,0 +1,22 @@
+Get /workouts/59dc9653c1ef1c233f94b966
+Get /workouts/intensity/9
+Get /workouts/date/2017-06-18T00:00:00.000Z
+Get /workouts/workouttype/Cardio
+
+Post {"workouttype": "Cardio", "duration" : 60, "description": "Uphill Run with 30 second recovery inbetween, 7 times", "time": "14:30", "date": "2017-06-18T00:00:00.000Z", "intensity": 8, "userid":123458}
+
+{"workouttype": "Weights"}
+{"duration": 40}
+{"description": "Bench presses"}
+{"time": "15:40"}
+{"date": "2017-2-12"}
+{"intensity":7}
+
+GET /users
+GET /users/123457
+GET /users/123457/workouts
+PUT /users/59ef0dc16b100241c5e2c3e6/firstname   {"firstname": "Emily"}
+PUT /users/59ef0dc16b100241c5e2c3e6/surname     {"surname": "Murphy"}
+PUT /users/59ef0dc16b100241c5e2c3e6/dateofbirth {"dateofbirth": "1996-5-12"}
+POST /users    {"userid":"123459", "firstname":"Mark", "surname":"Caulfield","dateofbirth":"1999-5-12"}
+DELETE /users/59ef0dc16b100241c5e2c3e6

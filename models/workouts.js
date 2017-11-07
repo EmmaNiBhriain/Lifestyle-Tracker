@@ -10,7 +10,8 @@ var WorkoutSchema = new mongoose.Schema({
     description: String,
     time: String,
     date: Date,  //use the mongoose data type 'Date'
-    intensity: Number
+    intensity: Number,
+    userid: Number
 });
 
 module.exports = mongoose.model('Workout', WorkoutSchema);
