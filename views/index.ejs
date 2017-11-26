@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="LifestyleTracker">
   <head>
+    <!-- google client id -->
+    <meta name="google-signin-client_id" content="1067797082655-0q0enea900rbk7oonptcb0bet1oi513o.apps.googleusercontent.com">
+
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <!--font-awesome used for icons such as heart icon and login buttons -->
@@ -11,14 +14,41 @@
     <!-- used for displaying main content swapped in from ejs files -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.js"></script>
+    <script src="angular-google-auth2/build/js/angular-google-auth2.js"></script>
+
+    <!-- used for google sign in -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- get jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="/javascripts/angularApp.js"></script>
     <script src="/javascripts/controllers/maincontroller.js"></script>
     <script src="/javascripts/controllers/workoutscontroller.js"></script>
     <script src="/javascripts/controllers/profilecontroller.js"></script>
+    <!--<script src="/javascripts/controllers/signincontroller.js"></script> -->
+    <script>
+      function onSignIn(googleUser){
+          angular.element(document.getElementById('mainCtrl')).scope().loggedIn(googleUser);
+          angular.element(document.getElementById('mainCtrl')).scope().$apply();
+      };
+
+      function signOut(){
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function(){
+              console.log('User signed out.');
+              angular.element(document.getElementById('mainCtrl')).scope().loggedOut();
+              angular.element(document.getElementById('mainCtrl')).scope().useremail = '';
+              angular.element(document.getElementById('mainCtrl')).scope().googlephoto = './images/runner.jpg';
+
+              angular.element(document.getElementById('mainCtrl')).scope().$apply();
+          });
+      }
+    </script>
+
   </head>
 
-  <body>
+  <body ng-controller="mainController" id="mainCtrl">
   <!--Navigation bar-->
     <nav class="navbar navbar-light bg-faded navbar-static-top" style="background-color: mediumpurple" role="navigation">
       <div class="container">
@@ -28,25 +58,29 @@
 
         <ul class="nav navbar-nav navbar-right">
           <div class="navbar-right">
-            <button type="button" class="btn btn-default navbar-btn btn-success" href="#">
-              <i class="fa fa-sign-in"></i>
-              Log In
-            </button>
-            <button type="button" class="btn btn-default navbar-btn btn-primary" href="#">
+            <!-- google sign in button -->
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+
+            <!--<button type="button" class="btn btn-default navbar-btn btn-primary" href="#">
               <i class="fa fa-pencil-in"></i>
               Register
-            </button>
+            </button>-->
+            <img src ='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
+
           </div>
+
           <li><a href="#/" style="color: black";>Home</a></li>
           <li><a href="#workouts" style="color: black";>View User Workouts</a></li>
           <li><a href="#profile" style="color: black";>User Profile</a></li>
+          <li><a href="#" style="color: black"; onclick="signOut()">Sign out</a></li>
         </ul>
       </div>
     </nav>
 
     <!--Main content-->
     <div id="main">
-      <div data-ng-view></div>
+      <div class="ng-scope" data-ng-view></div>
     </div>
 
     <footer class="text-center">

@@ -5,3 +5,4 @@ app.controller('profileController', ['$scope', function($scope){
     $scope.message = 'This is the user data';
 }
 ]);
+
