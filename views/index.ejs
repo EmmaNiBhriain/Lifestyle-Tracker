@@ -39,6 +39,7 @@
               console.log('User signed out.');
               angular.element(document.getElementById('mainCtrl')).scope().loggedOut();
               angular.element(document.getElementById('mainCtrl')).scope().useremail = '';
+              angular.element(document.getElementById('mainCtrl')).scope().username = '';
               angular.element(document.getElementById('mainCtrl')).scope().googlephoto = './images/runner.jpg';
 
               angular.element(document.getElementById('mainCtrl')).scope().$apply();

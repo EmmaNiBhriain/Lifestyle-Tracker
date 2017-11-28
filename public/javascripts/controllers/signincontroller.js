@@ -1,4 +1,4 @@
-var app = angular.module('LifestyleTracker');
+/*var app = angular.module('LifestyleTracker');
 
 app.controller('signinController', ['$scope', function($scope){
     //display a message
@@ -35,7 +35,7 @@ app.controller('signinController', ['$scope', function($scope){
         gapi.auth.signIn(params);
     }
 }
-]);
+]);*/
 
 
 

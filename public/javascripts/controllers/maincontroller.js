@@ -34,6 +34,9 @@ app.controller('mainController', ['$scope', 'userService', '$route', '$templateC
         userService.googlephoto = './images/runner.jpg';
         $scope.$apply();
 
+       // var currentPageTemplate = $route.current.templateUrl;
+        //$templateCache.remove(currentPageTemplate);
+        $route.reload();
 
     }
    // $scope.message = 'Track Your Workouts Here';
