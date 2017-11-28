@@ -11,7 +11,9 @@ var WorkoutSchema = new mongoose.Schema({
     time: String,
     date: Date,  //use the mongoose data type 'Date'
     intensity: Number,
-    userid: Number
+    userid: Number,
+    usertoken: String,
+    googlephoto: String
 });
 
 module.exports = mongoose.model('Workout', WorkoutSchema);
