@@ -6,8 +6,8 @@ app.controller('workoutsController', ['$scope','$http', '$location', function($s
     formData={};
 
     $scope.addWorkout = function(){
-        $scope.formData.usertoken=userService.usertoken;
-        //$scope.formData.userid = 3;
+        //$scope.formData.usertoken=userService.usertoken;
+        $scope.formData.userid = 123458;
         //$scope.formData.workouttype = "cardio";
         $http.post('/workouts',$scope.formData)
             .success(function(data){
@@ -31,6 +31,21 @@ app.controller('workoutsController', ['$scope','$http', '$location', function($s
             .error(function(data){
                 console.log('Error: ' + data);
             });
+    };
+
+    $scope.delete = function(id){
+        if(confirm("Are you sure you want to delete this Donation?")){
+            console.log("deleting id: " + id);
+
+            $http.delete('/workouts/'+id)
+                .success(function(data){
+                    console.log(data);
+                    findAll();
+                })
+                .error(function(data){
+                    console.log('Error: ' + data);
+                });
+        }
     };
 }
 ]);

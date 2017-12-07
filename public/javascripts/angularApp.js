@@ -22,7 +22,7 @@ app.service('workoutService', function(){
         time: '',
         date: '',  //use the mongoose data type 'Date'
         intensity: '0'
-        //userid: Number,
+        //userid: 123458,
         //usertoken: String,
     };
     return workoutService;
@@ -46,7 +46,7 @@ app.config(function($routeProvider){
     //route for the add workout page
         .when('/addworkout',{
             templateUrl: 'pages/addworkout.ejs',
-            controller: 'addworkoutcontroller.js'
+            controller: 'workoutsController'
         })
 
     //route for the workouts page
