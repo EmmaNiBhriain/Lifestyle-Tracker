@@ -1,0 +1,51 @@
+<div class="jumbotron text-center" ng-controller="workoutsController">
+    <!-- <h1>{{ message }}</h1> -->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-5">
+            <h3>Enter workout details</h3>
+            <form ng-submit="addWorkout()" style="margin-top:30px;">
+                <div class="form-group">
+                    <label for="workouttype">Workout Type</label>
+                    <select ng-model="formData.workouttype" id="workouttype">
+                        <option value="cardio">Cardio
+                        <option value="weights">Weights
+                        <option value="Other">Other
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="text" ng-model="formData.time" id="time">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="date">Date</label>
+                    <input class="form-control" id="date" ng-model="formData.date" placeholder="MM/DD/YYY" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+                    <input type="text" ng-model="formData.duration" id="duration"> mins
+                </div>
+                <div class="form-group">
+                    <label for="intensity">Intensity</label>
+                    <div class="input-group" id="intensity">
+                        <input type="number"
+                               class="form-control"
+                               placeholder="1"
+                               ng-model="formData.intesity"
+                               ng-style="{'width': 100 + 'px'}"
+                               min="1" max="10"> </input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" rows="3" ng-model="formData.description"></textarea>
+                </div>
+
+                <div class="button" type="btn btn-success">
+                    <input type="submit" value="Save" >
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

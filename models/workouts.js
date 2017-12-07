@@ -13,7 +13,6 @@ var WorkoutSchema = new mongoose.Schema({
     intensity: Number,
     userid: Number,
     usertoken: String,
-    googlephoto: String
 });
 
 module.exports = mongoose.model('Workout', WorkoutSchema);
