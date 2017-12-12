@@ -86,6 +86,7 @@ router.addWorkout = function(req,res){
     workout.description = req.body.description;
     workout.duration = req.body.duration;
     workout.workouttype = req.body.workouttype;
+    workout.userid = req.body.userid;
     console.log('Adding workout:' + JSON.stringify(workout));
 
     /*save the workout and check for errors
@@ -182,6 +183,28 @@ router.changeDescription = function(req, res){
         }
     })
 };
+
+
+/* Change the owner of a workout
+* @param req
+* @param res
+*/
+router.changeUser = function(req, res){
+    Workout.findById(req.params.id, function(err,workout){
+        if(err)
+            res.send(err);
+        else{
+            workout.userid = req.body.userid;
+            workout.save(function(err){
+                if(err)
+                    res.send(err);
+                else
+                    res.json({message: 'Workout owner Updated!', data: workout});
+            })
+        }
+    })
+};
+
 
 /**
  * Change the time value of the workout

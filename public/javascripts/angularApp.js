@@ -4,7 +4,7 @@ var app = angular.module('LifestyleTracker', ['ngRoute']);
 //Create a user service for use to inject data about the user
 app.service('userService', function(){
     var userService = {
-        usertoken: null,
+        userid: null,
         username: 'Log In',
         useremail: 'email',
         googlephoto: './images/runner.jpg'
@@ -17,12 +17,14 @@ app.service('workoutService', function(){
 
     var workoutService = {
         _id:'',
+        workouttype:'',
         duration: 0,
         description: '',
         time: '',
+        userid: '',
         date: '',  //use the mongoose data type 'Date'
         intensity: '0'
-        //userid: 123458,
+
         //usertoken: String,
     };
     return workoutService;

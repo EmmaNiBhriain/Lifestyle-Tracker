@@ -13,12 +13,13 @@ app.controller('mainController', ['$scope', 'userService', '$route', '$templateC
         console.log($scope.username);
         $scope.useremail = profile.getEmail();
         $scope.googlephoto = profile.getImageUrl();
-        userService.usertoken = id;
+        userService.userid= id;
         userService.username = $scope.username;
+        userService.useremail = $scope.useremail;
         userService.googlephoto = $scope.googlephoto;
 
         $scope.$apply();
-        console.log('Token: ' + userService.usertoken);
+        console.log('Token: ' + userService.userid);
         console.log('mainController loggedIn Called with : userService Profile ' + userService.username);
         console.log('Current templateUrl: ' + $route.current.templateUrl);
 
@@ -28,7 +29,7 @@ app.controller('mainController', ['$scope', 'userService', '$route', '$templateC
     };
 
     $scope.loggedOut = function(){
-        userService.usertoken = null;
+        userService.userid = null;
         userService.username = null;
         userService.useremail = null;
         userService.googlephoto = './images/runner.jpg';

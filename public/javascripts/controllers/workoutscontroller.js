@@ -1,29 +1,62 @@
 var app = angular.module('LifestyleTracker');
 
-app.controller('workoutsController', ['$scope','$http', '$location', 'workoutService', function($scope, $http, $location, workoutService){
+app.controller('workoutsController', ['$scope','$http', '$location', 'workoutService', 'userService', function($scope, $http, $location, workoutService, userService){
     //display a message
     //$scope.message = 'Log in to add a workout';
-    formData={};
+    //workoutService.userid = userService.userid;
+    $scope.formData={};
+    $scope.formData.workouttype="Other";
+    $scope.formData.intensity=1;
+    //$scope.formData.userid = 109186492055068213998;
+    //$scope.userid=userService.userid;
 
     $scope.addWorkout = function(){
-        //$scope.formData.usertoken=userService.usertoken;
+        $scope.formData.userid = userService.userid;
+        //$scope.formData.userid = userService.userid;
+        //workoutService.userid = userService.userid;
+        //workoutService.intensity = $scope.formData.intensity;
+        //workoutService._id = $scope.formData._id;
+        //workoutService.userid = userService.userid;
+        //workoutService.userid = userService.userid;
+        //workoutService.userid = userService.userid;
+
+        console.log('User id is ' + userService.userid);
+        console.log('User id is ' + workoutService.userid);
+        console.log('workout id' + workoutService._id);
+        console.log('form data ' + $scope.formData.userid);
+        //$scope.formData.append("userid", userService.userid);
+
         //$scope.formData.userid = 123458;
+
+
+        //workoutService._id = $scope.formData._id;
+        console.log(workoutService._id);
         //$scope.formData.workouttype = "cardio";
-        $http.post('/workouts',$scope.formData)
+
+        $http.post('/workouts', $scope.formData)
             .success(function(data){
                 $scope.workouts = data;
+                console.log($scope.workouts);
+                console.log(data._id);
                 $location.path('/workouts');
                 console.log(data);
+
+
+                //add the user id field to the newly created workout
+                //$http.put('/workouts/' + $scope.formData.userid + '/userid', JSON.stringify({userid : userService.userid}));
             })
             .error(function(data){
                 console.log('Error: '+ data);
             });
+
+
+
     };
 
     findAll();
 
     function findAll(){
-        $http.get('/users/123457/workouts')
+        $http.get('/users/'+userService.userid+'/workouts')
             .success(function(data){
                 $scope.workouts = data;
                 console.log(data);
@@ -76,6 +109,7 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
         workoutService.duration = workout.duration;
         workoutService.description = workout.description;
         workoutService.intensity = workout.intensity;
+        workoutService.userid = workout.userid;
         console.log(workoutService.id);
         console.log(workout.id);
         workout = $http.get('/workouts/' + workoutService._id)

@@ -43,6 +43,10 @@ app.put('/workouts/:id/time', workouts.changeTime);  //change the time of a work
 app.put('/workouts/:id/date', workouts.changeDate);  //change the date of a workout
 app.delete('/workouts/:id', workouts.deleteWorkout);  //delete a workout
 
+//new: change owner of a workout
+app.put('/workouts/:id/userid', workouts.changeUser);
+
+
 /**
  * Endpoints for the users moodel
  */
