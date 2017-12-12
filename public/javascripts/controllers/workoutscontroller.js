@@ -66,12 +66,11 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
             });
     };*/
 
-   //Todo try to place the values of the workout in a service object and send to separate controller that gets called when rendering the edit page
-    //use a workoutService to sent the data of the selected workout to the update page
-    $scope.editWorkout = function(workout){
+   //Place the values of the workout in a service object and send to separate controller that gets called when rendering the edit page
+    $scope.viewWorkout = function(workout){
        //findOne(workout);
         workoutService._id = workout._id;
-        //workoutService.intensity =4 ;
+        workoutService.time = workout.time ;
         workoutService.date = workout.date;
         workoutService.workouttype = workout.workouttype;
         workoutService.duration = workout.duration;
@@ -83,7 +82,7 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
             .success(function (data) {
                 console.log(data);
                 $scope.workouts = data;
-                $location.path('/editworkout');
+                $location.path('/viewworkout');
                 //$scope.editIntensity(workout);
             })
             .error(function(data){
@@ -91,17 +90,5 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
             });
 
     };
-
-    $scope.editIntensity = function(workout){
-        //findOne(workout);
-        $http.put('/workouts/' + workoutService._id + '/intensity', JSON.stringify({intensity : workoutService.intensity}))
-            .success(function(data){
-                console.log(data);
-                findAll();
-            })
-            .error(function(data){
-                console.log('Error: ' + data);
-            })
-    }
 }
 ]);

@@ -1,0 +1,71 @@
+<div class="jumbotron text-center">
+    <!-- <h1>{{ message }}</h1> -->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-5">
+
+            <div>
+                <table align="center" valign="middle">
+                    <tbody >
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+                        <td>Workout type: </td>
+
+                    <td>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.workouttype}}</span>
+                    </td>
+                    </tr>
+
+
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+                        <td>
+                            Date:
+                        </td>
+                    <td>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.date}}</span>
+                    </td>
+
+                    </tr>
+
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+                        <td>Time: </td>
+                        <td>
+                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.time}}</span>
+                        </td>
+
+                    </tr>
+
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+                        <td>Duration: </td>
+                        <td>
+                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.duration}} mins</span>
+                        </td>
+
+                    </tr>
+
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+                        <td>Intensity: </td>
+                    <td>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.intensity}}</span>
+                    </td>
+
+                    </tr>
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+                        <td>Description: </td>
+                    <td>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.description}}</span>
+                    </td>
+                    </tr>
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+                        <td>
+                            <button type="button" class="btn btn-default" ng-click="edit(workout)">
+                                <span class="glyphicon glyphicon-edit"></span> Edit
+                            </button>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
