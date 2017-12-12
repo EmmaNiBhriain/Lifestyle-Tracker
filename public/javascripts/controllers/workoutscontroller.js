@@ -23,7 +23,7 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
     findAll();
 
     function findAll(){
-        $http.get('/users/123458/workouts')
+        $http.get('/users/123457/workouts')
             .success(function(data){
                 $scope.workouts = data;
                 console.log(data);
@@ -48,26 +48,52 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
         }
     };
 
-    //use a workoutService to sent the data of the selected workout to the update page
-    $scope.editWorkout = function(workout){
+
+   /* function findOne(workout){
         workoutService._id = workout._id;
         workoutService.intensity = 9;
         //workoutService.intensity = workout.intensity;
         console.log(workoutService.id);
         console.log(workout.id);
         workout = $http.get('/workouts/' + workoutService._id)
-        .success(function (data) {
-            console.log(data);
-            $scope.workouts = data;
-            $location.path('/editworkout');
-        })
+            .success(function (data) {
+                console.log(data);
+                $scope.workouts = data;
+                $location.path('/editworkout');
+            })
             .error(function(data){
                 console.log('Error: ' + data);
-        });
+            });
+    };*/
+
+   //Todo try to place the values of the workout in a service object and send to separate controller that gets called when rendering the edit page
+    //use a workoutService to sent the data of the selected workout to the update page
+    $scope.editWorkout = function(workout){
+       //findOne(workout);
+        workoutService._id = workout._id;
+        //workoutService.intensity =4 ;
+        workoutService.date = workout.date;
+        workoutService.workouttype = workout.workouttype;
+        workoutService.duration = workout.duration;
+        workoutService.description = workout.description;
+        workoutService.intensity = workout.intensity;
+        console.log(workoutService.id);
+        console.log(workout.id);
+        workout = $http.get('/workouts/' + workoutService._id)
+            .success(function (data) {
+                console.log(data);
+                $scope.workouts = data;
+                $location.path('/editworkout');
+                //$scope.editIntensity(workout);
+            })
+            .error(function(data){
+                console.log('Error: ' + data);
+            });
 
     };
 
     $scope.editIntensity = function(workout){
+        //findOne(workout);
         $http.put('/workouts/' + workoutService._id + '/intensity', JSON.stringify({intensity : workoutService.intensity}))
             .success(function(data){
                 console.log(data);

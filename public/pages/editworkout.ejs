@@ -1,34 +1,33 @@
 <div class="jumbotron text-center">
     <!-- <h1>{{ message }}</h1> -->
-
     <div class="row">
         <div class="col-md-6 col-md-offset-5">
 
-            <div ng-controller="workoutsController as list">
+            <div>
                 <table align="center" valign="middle">
-                    <tbody ng-repeat="workout in workouts">
-                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
+                    <tbody >
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
 
                     <td>
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{workout.workouttype}}</span>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.workouttype}}</span>
                     </td>
                     <td>
 
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>
 
-                        <button type="button" class="btn btn-default" ng-click="editWorkouttype(workout._id)">
+                        <button type="button" class="btn btn-default" ng-click="editWorkoutType(workout._id)">
                             <span class="glyphicon glyphicon-edit"></span> Edit
                         </button>
                         </span>
                     </td>
                     </tr>
-                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
                     <td>
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{workout.date}}</span>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.date}}</span>
                     </td>
                     <td>
 
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>
 
                         <button type="button" class="btn btn-default" ng-click="editDate(workout._id)">
                             <span class="glyphicon glyphicon-edit"></span> Edit
@@ -36,13 +35,13 @@
                         </span>
                     </td>
                     </tr>
-                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
                     <td>
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{workout.intensity}}</span>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.intensity}}</span>
                     </td>
                     <td>
 
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>
 
                         <button type="button" class="btn btn-default" ng-click="editIntensity(workout._id)">
                             <span class="glyphicon glyphicon-edit"></span> Edit
@@ -50,13 +49,13 @@
                         </span>
                     </td>
                     </tr>
-                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
                     <td>
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{workout.description}}</span>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.description}}</span>
                     </td>
                     <td>
 
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>
 
                         <button type="button" class="btn btn-default" ng-click="editDescription(workout._id)">
                             <span class="glyphicon glyphicon-edit"></span> Edit

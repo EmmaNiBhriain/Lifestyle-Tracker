@@ -58,7 +58,7 @@ app.config(function($routeProvider){
     //route for the edit workout page
     .when('/editworkout',{
         templateUrl: 'pages/editworkout.ejs',
-        controller: 'workoutsController'
+        controller: 'editingController'
     });
 
 });

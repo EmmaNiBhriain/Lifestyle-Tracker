@@ -7,17 +7,17 @@
             <div ng-controller="workoutsController as list">
                 <table align="center" valign="middle">
                     <tbody ng-repeat="workout in workouts">
-                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
+                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
 
                     <td>
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{workout.workouttype}}</span>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.workouttype}}</span>
                     </td>
                     <td>
                         {{workout.date}}
                     </td>
                     <td>
 
-                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>
 
 
                         <button type="button" class="btn btn-default" ng-click="delete(workout._id)">
