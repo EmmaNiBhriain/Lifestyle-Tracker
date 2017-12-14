@@ -1,10 +1,15 @@
+
+
 <div class="jumbotron text-center" ng-controller="workoutsController">
     <!-- <h1>{{ message }}</h1> -->
+
+
     <div class="row">
         <div class="col-md-6 col-md-offset-5">
             <h3>Enter workout details</h3>
             <form ng-submit="addWorkout()" style="margin-top:30px;">
 
+                <p>* indicates required fields</p>
                 <div class="form-group">
                     <label for="workouttype">Workout Type</label>
                     <select ng-model="formData.workouttype" id="workouttype">
@@ -16,11 +21,12 @@
 
                 <div class="form-group">
                     <label for="time">Time</label>
-                    <input type="text" ng-model="formData.time" id="time">
+                    <input type="time" ng-model="formData.time" placeholder="00:00:PM" id="time">
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="date">Date</label>
-                    <input class="form-control" id="date" ng-model="formData.date" placeholder="MM/DD/YYY" type="text"/>
+                    <label for="date">Date *</label>
+
+                    <input class="form-control" ng-model="formData.date" id="date" name="date" placeholder="yyyy-mm-dd" type="date"/>
                 </div>
                 <div class="form-group">
                     <label for="duration">Duration</label>

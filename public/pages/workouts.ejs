@@ -1,20 +1,49 @@
-<div class="jumbotron text-center">
-   <!-- <h1>{{ message }}</h1> -->
+<div class="jumbotron text-center" xmlns="http://www.w3.org/1999/html">
+    <h1>{{ message }}</h1>
+    <div class="ng-hide" ng-show="flag">
 
     <div class="row">
-        <div class="col-md-6 col-md-offset-5">
+        <div class="col-md-8">
 
+            <label>Search by intensity: <input type="number" ng-model="searchText.intensity"/><a class="clear" ng-click="searchText = null">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a></label>
+            <br>
+            <label>Search by workout type</label>
+            <select ng-model="searchText.workouttype" id="workouttype">
+                <option value="cardio">Cardio
+                <option value="weights">Weights
+                <option value="Other">Other
+                <option value="">All</option>
+            </select>
+            <br>
             <div ng-controller="workoutsController as list">
                 <table align="center" valign="middle">
-                    <tbody ng-repeat="workout in workouts">
+                    <thead>
+                        <tr>
+                            <th>Intensity</th>
+                            <th>Workout Type</th>
+                            <th>Date</th>
+                        </tr>
+
+                    </thead>
                     <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
+
+
+
+                    <tbody ng-repeat="workout in workouts | filter:searchText">
+
+                    <td>
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.intensity}}</span>
+                    </td>
 
                     <td>
                         <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.workouttype}}</span>
                     </td>
                     <td>
-                        {{workout.date}}
+                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.date | date: 'yyyy-MM-dd'}}</span>
                     </td>
+
                     <td>
 
                         <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>
@@ -34,5 +63,6 @@
             </div>
             <a href="#addworkout" style="color: black";>Add a workout</a>
         </div>
+    </div>
     </div>
 </div>

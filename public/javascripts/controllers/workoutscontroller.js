@@ -4,13 +4,30 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
     //display a message
     //$scope.message = 'Log in to add a workout';
     //workoutService.userid = userService.userid;
+
+    if(userService.userid != null){
+        $scope.flag = true;
+        console.log('valid');
+    }
+    else{
+        $scope.flag = false;
+        $scope.message="Please sign in to view content";
+    }
+    console.log('flag: ' + true);
+
     $scope.formData={};
     $scope.formData.workouttype="Other";
     $scope.formData.intensity=1;
+
+    $scope.searchData={};
+    $scope.searchData.workouttype = "Cardio";
+    $scope.searchData.intensity = 1;
     //$scope.formData.userid = 109186492055068213998;
     //$scope.userid=userService.userid;
 
     $scope.addWorkout = function(){
+        date = $scope.formData.date;
+        date = date.toISOString();
         $scope.formData.userid = userService.userid;
         //$scope.formData.userid = userService.userid;
         //workoutService.userid = userService.userid;
@@ -19,7 +36,7 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
         //workoutService.userid = userService.userid;
         //workoutService.userid = userService.userid;
         //workoutService.userid = userService.userid;
-
+        console.log('date: ' + $scope.formData.date);
         console.log('User id is ' + userService.userid);
         console.log('User id is ' + workoutService.userid);
         console.log('workout id' + workoutService._id);
