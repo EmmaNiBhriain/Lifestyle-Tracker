@@ -2,6 +2,13 @@ var Workout = require('../models/workouts');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } },
+                user: 'admin', pass: 'admin123' };  
+
+//ENTER YOUR MONGODB CONNECTION STRING HERE IN PLACE OF MY ONE
+var mongodbUri = 'mongodb://:ds141786.mlab.com:41786/heroku_hgndk4sg';
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
 /**
  * Return all workouts
@@ -265,8 +272,8 @@ router.deleteWorkout = function(req, res) {
 }
 
 //useMongoClient is added as the default connection logic is deprecated
-mongoose.connect('mongodb://localhost:27017/lifestyledb', {useMongoClient: true});
-
+//mongoose.connect('mongodb://localhost:27017/lifestyledb', {useMongoClient: true});
+mongoose.connect(mongooseUri,options);
 var db = mongoose.connection;
 
 db.on('error', function (err) {

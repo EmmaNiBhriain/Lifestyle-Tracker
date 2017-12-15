@@ -13,11 +13,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-
-
-
-
-
     <!-- google client id -->
     <meta name="google-signin-client_id" content="1067797082655-0q0enea900rbk7oonptcb0bet1oi513o.apps.googleusercontent.com">
 
@@ -80,20 +75,12 @@
     </script>
 
   </head>
+
   <header>
     <div align="center">
       <a class="nav-item nav-link active" href="#/" style="color: black;";><i class="fa fa-heart fa-4x" style="color: red;"></i>  <h1>Lifestyle Tracker</h1></a>
     </div>
-    <div align="right"><!--
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-          <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>-->
+    <div align="right">
 
         <div class="dropdown">
             <div data-toggle="dropdown" class="dropdown-toggle">
@@ -105,28 +92,12 @@
             </ul>
 
         </div>
-<!--      <div class="btn-group">
-        <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-          <img src='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="menu1">
-          <li  class="g-signin2" data-onsuccess="onSignIn">Sign in</li>
-          <li><a href="#" style="color: black"; onclick="signOut()">Sign out</a></li>
-        </ul>
-      </div>.
-    </div> -->
-      <!--
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      <a href="#" style="color: black"; onclick="signOut()">Sign out</a>
-      <img src ='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
-    --></div>
+    </div>
 
 
   </header>
 
   <body ng-controller="mainController" id="mainCtrl">
-  <!--Navigation bar-->
 
   <div id="wrapper">
 
@@ -164,50 +135,6 @@
       });
   </script>
 
-
-  <!--
-
-
-  <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: mediumpurple">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-      </button>
-      <a class="navbar-brand" href="#">Navbar</a>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#/" style="color: white;";><i class="fa fa-heart" style="color: red;"></i>  Lifestyle Tracker</a>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right">
-          <div class="navbar-right">
-            <!-- google sign in button
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-
-            <!--<button type="button" class="btn btn-default navbar-btn btn-primary" href="#">
-              <i class="fa fa-pencil-in"></i>
-              Register
-            </button>
-            <img src ='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
-
-          </div>
-
-          <li><a href="#/" style="color: black";>Home</a></li>
-          <li><a href="#workouts" style="color: black";>View User Workouts</a></li>
-          <li><a href="#profile" style="color: black";>User Profile</a></li>
-          <li><a href="#" style="color: black"; onclick="signOut()">Sign out</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!--Main content
-    <div id="main">
-      <div class="container-fluid">
-        <a href="#" class="btn btn-success" id="menu-toggle"><i class="fa fa-bars"></i></a>
-        <div class="ng-scope" data-ng-view></div>
-      </div>
-
-    </div> -->
 
 
   </body>

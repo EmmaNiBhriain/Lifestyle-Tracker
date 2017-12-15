@@ -8,7 +8,7 @@
             <form ng-submit="updateWorkout()" style="margin-top:30px;">
                 <div class="form-group">
                     <label for="workouttype">Workout Type</label>
-                    <select ng-model="formData.workouttype" id="workouttype">
+                    <select ng-model="formData.workouttype" id="workouttype" class="form-control">
                         <option value="">{{workout.workouttype}}</option>
                         <option value="cardio">Cardio
                         <option value="weights">Weights
@@ -18,21 +18,21 @@
 
                 <div class="form-group">
                     <label for="time">Time</label>
-                    <input type="time" ng-model="formData.time" id="time" placeholder="{{workout.time}}">
+                    <input class="form-control" type="time" ng-model="formData.time" id="time" placeholder="{{workout.time}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="date">Date</label>
                     <input class="form-control" id="date" ng-model="formData.date" placeholder="{{workout.date | date: 'yyyy-MM-dd'}}" type="date"/>
                 </div>
                 <div class="form-group">
-                    <label for="duration">Duration</label>
+                    <label for="duration">Duration (mins)</label>
                     <div class="input-group" id="duration">
                         <input type="number"
                                class="form-control"
                                placeholder="{{workout.duration}}"
                                ng-model="formData.duration"
                                ng-style="{'width': 100 + 'px'}"
-                               min="1"> </input> mins
+                               min="1"> </input>
                     </div>
                 </div>
                 <div class="form-group">

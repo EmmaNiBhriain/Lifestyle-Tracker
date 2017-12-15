@@ -14,7 +14,7 @@
                 <p>* indicates required fields</p>
                 <div class="form-group">
                     <label for="workouttype">Workout Type</label>
-                    <select ng-model="formData.workouttype" id="workouttype">
+                    <select ng-model="formData.workouttype" id="workouttype" class="form-control">
                         <option value="cardio">Cardio
                         <option value="weights">Weights
                         <option value="Other">Other
@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     <label for="time">Time</label>
-                    <input type="time" ng-model="formData.time" placeholder="00:00:PM" id="time">
+                    <input class="form-control" type="time" ng-model="formData.time" placeholder="00:00:PM" id="time">
                 </div>
                 <div class="form-group">
                     <label for="date">Date *</label>
@@ -31,14 +31,13 @@
                     <input class="form-control" ng-model="formData.date" id="date" name="date" placeholder="yyyy-mm-dd" type="date" required="true"/>
                 </div>
                 <div class="form-group">
-                    <label for="duration">Duration</label>
+                    <label for="duration">Duration (mins)</label>
                     <div class="input-group" id="duration">
                         <input type="number"
                                class="form-control"
                                placeholder="1"
                                ng-model="formData.duration"
-                               ng-style="{'width': 100 + 'px'}"
-                               min="1" align="center"> </input>    mins
+                               min="1"> </input>
                     </div>
                 </div>
                 <div class="form-group">
@@ -48,7 +47,7 @@
                                class="form-control"
                                placeholder="1"
                                ng-model="formData.intensity"
-                               ng-style="{'width': 100 + 'px'}"
+                               ng-style="{'width': 100 + '%'}"
                                min="1" max="10"> </input>
                     </div>
                 </div>
