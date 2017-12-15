@@ -1,5 +1,7 @@
 <div class="jumbotron text-center"  >
     <!-- <h1>{{ message }}</h1> -->
+    <h3>{{ message }}</h3>
+    <div class="ng-hide" ng-show="flag">
     <div class="row">
         <div class="col-md-6 col-md-offset-5">
 
@@ -28,7 +30,7 @@
                     <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle"; >
                         <td>Time: </td>
                         <td>
-                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.time}}</span>
+                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign:middle";>{{workout.time | date: 'hh:mm'}}</span>
                         </td>
 
                     </tr>

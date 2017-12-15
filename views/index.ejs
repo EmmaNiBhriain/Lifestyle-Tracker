@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html ng-app="LifestyleTracker">
   <head>
+    <!-- to be removed after test -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
     <!-- google client id -->
     <meta name="google-signin-client_id" content="1067797082655-0q0enea900rbk7oonptcb0bet1oi513o.apps.googleusercontent.com">
 
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
     <!--font-awesome used for icons such as heart icon and login buttons -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" />
-    <!-- used for css used for the navigation bar -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 
-      <!-- bootstrap for the calendar drop down -->
-<!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
--->
+    <!-- used for css used for the navigation bar -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- angular date picker css and js -->
+    <link href="/stylesheets/angular-datepicker.css" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/angular-datepicker.js"></script>
+
     <!-- used for displaying main content swapped in from ejs files -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.js"></script>
@@ -23,14 +46,18 @@
     <!-- used for google sign in -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <!-- get jquery -->
+    <!-- get jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
 
     <script src="/javascripts/angularApp.js"></script>
     <script src="/javascripts/controllers/maincontroller.js"></script>
     <script src="/javascripts/controllers/workoutscontroller.js"></script>
     <script src="/javascripts/controllers/profilecontroller.js"></script>
     <script src="/javascripts/controllers/viewcontroller.js"></script>
+
 
     <script>
       function onSignIn(googleUser){
@@ -53,25 +80,114 @@
     </script>
 
   </head>
+  <header>
+    <div align="center">
+      <a class="nav-item nav-link active" href="#/" style="color: black;";><i class="fa fa-heart fa-4x" style="color: red;"></i>  <h1>Lifestyle Tracker</h1></a>
+    </div>
+    <div align="right"><!--
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>-->
+
+        <div class="dropdown">
+            <div data-toggle="dropdown" class="dropdown-toggle">
+                <img src='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
+            </div>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li  class="g-signin2" data-onsuccess="onSignIn">Sign in</li>
+                <li><a href="#" style="color: black"; onclick="signOut()">Sign out</a></li>
+            </ul>
+
+        </div>
+<!--      <div class="btn-group">
+        <button class="btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+          <img src='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="menu1">
+          <li  class="g-signin2" data-onsuccess="onSignIn">Sign in</li>
+          <li><a href="#" style="color: black"; onclick="signOut()">Sign out</a></li>
+        </ul>
+      </div>.
+    </div> -->
+      <!--
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" style="color: black"; onclick="signOut()">Sign out</a>
+      <img src ='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
+    --></div>
+
+
+  </header>
 
   <body ng-controller="mainController" id="mainCtrl">
   <!--Navigation bar-->
-    <nav class="navbar navbar-light bg-faded navbar-static-top" style="background-color: mediumpurple" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#/" style="color: white;";><i class="fa fa-heart" style="color: red;"></i>  Lifestyle Tracker</a>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <img src='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#workouts">View Workouts</a></li>
+        <li><a href="#addworkout">Add a new Workout</a></li>
+      </ul>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <a href="#" class="btn" id="menu-toggle"><i class="fa fa-bars fa-3x"  style="color: black;"></i></a>
+        <div class="ng-scope" data-ng-view></div>
+      </div>
+      <footer class="text-center">
+        <p>LifeStyle Tracker Footer</p>
+      </footer>
+    </div>
+
+
+
+  </div>
+
+  <!-- Menu toggle script -->
+  <script>
+      $("#menu-toggle").click( function (e){
+          e.preventDefault();
+          $("#wrapper").toggleClass("menuDisplayed");
+      });
+  </script>
+
+
+  <!--
+
+
+  <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: mediumpurple">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+      <a class="navbar-brand" href="#">Navbar</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#/" style="color: white;";><i class="fa fa-heart" style="color: red;"></i>  Lifestyle Tracker</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
           <div class="navbar-right">
-            <!-- google sign in button -->
+            <!-- google sign in button
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
 
             <!--<button type="button" class="btn btn-default navbar-btn btn-primary" href="#">
               <i class="fa fa-pencil-in"></i>
               Register
-            </button>-->
+            </button>
             <img src ='{{ googlephoto }}' height="60" width="60" class="img-circle" style="padding: 5px">
 
           </div>
@@ -84,13 +200,15 @@
       </div>
     </nav>
 
-    <!--Main content-->
+    <!--Main content
     <div id="main">
-      <div class="ng-scope" data-ng-view></div>
-    </div>
+      <div class="container-fluid">
+        <a href="#" class="btn btn-success" id="menu-toggle"><i class="fa fa-bars"></i></a>
+        <div class="ng-scope" data-ng-view></div>
+      </div>
 
-    <footer class="text-center">
-      <p>LifeStyle Tracker Footer</p>
-    </footer>
+    </div> -->
+
+
   </body>
 </html>

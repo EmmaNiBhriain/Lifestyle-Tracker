@@ -11,7 +11,7 @@ app.controller('workoutsController', ['$scope','$http', '$location', 'workoutSer
     }
     else{
         $scope.flag = false;
-        $scope.message="Please sign in to view content";
+        $scope.message="Please sign in to access site content";
     }
     console.log('flag: ' + true);
 

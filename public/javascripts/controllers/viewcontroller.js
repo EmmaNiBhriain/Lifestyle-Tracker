@@ -1,8 +1,17 @@
 var app = angular.module('LifestyleTracker');
 
-app.controller('viewController', ['$scope','$http', '$location', 'workoutService', function($scope, $http, $location, workoutService){
+app.controller('viewController', ['$scope','$http', '$location', 'workoutService', 'userService', function($scope, $http, $location, workoutService, userService){
     //display a message
     //$scope.message = 'Log in to add a workout';
+
+    if(userService.userid != null){
+        $scope.flag = true;
+        console.log('valid');
+    }
+    else{
+        $scope.flag = false;
+        $scope.message="Please sign in to access site content";
+    }
 
     setup();
     //use a workoutService to sent the data of the selected workout to the update page

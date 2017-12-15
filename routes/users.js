@@ -13,6 +13,7 @@ router.findAll = function(req,res){
     })
 };
 
+
 /**
  * List all workouts of a particular user
  * @param req

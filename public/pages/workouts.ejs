@@ -1,11 +1,11 @@
 <div class="jumbotron text-center" xmlns="http://www.w3.org/1999/html">
-    <h1>{{ message }}</h1>
+    <h3>{{ message }}</h3>
     <div class="ng-hide" ng-show="flag">
 
     <div class="row">
         <div class="col-md-8">
 
-            <label>Search by intensity: <input type="number" ng-model="searchText.intensity"/><a class="clear" ng-click="searchText = null">
+            <label>Search by intensity: <input type="number" ng-model="searchText.intensity" min="1" max="10"/><a class="clear" ng-click="searchText = null">
                     <span class="glyphicon glyphicon-remove"></span>
                 </a></label>
             <br>

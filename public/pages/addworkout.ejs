@@ -3,9 +3,11 @@
 <div class="jumbotron text-center" ng-controller="workoutsController">
     <!-- <h1>{{ message }}</h1> -->
 
+    <h3>{{ message }}</h3>
+    <div class="ng-hide" ng-show="flag">
 
     <div class="row">
-        <div class="col-md-6 col-md-offset-5">
+        <div class="col-md-6 col-md-offset-3">
             <h3>Enter workout details</h3>
             <form ng-submit="addWorkout()" style="margin-top:30px;">
 
@@ -26,11 +28,18 @@
                 <div class="form-group">
                     <label for="date">Date *</label>
 
-                    <input class="form-control" ng-model="formData.date" id="date" name="date" placeholder="yyyy-mm-dd" type="date"/>
+                    <input class="form-control" ng-model="formData.date" id="date" name="date" placeholder="yyyy-mm-dd" type="date" required="true"/>
                 </div>
                 <div class="form-group">
                     <label for="duration">Duration</label>
-                    <input type="text" ng-model="formData.duration" id="duration"> mins
+                    <div class="input-group" id="duration">
+                        <input type="number"
+                               class="form-control"
+                               placeholder="1"
+                               ng-model="formData.duration"
+                               ng-style="{'width': 100 + 'px'}"
+                               min="1" align="center"> </input>    mins
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="intensity">Intensity</label>

@@ -1,5 +1,7 @@
 <div class="jumbotron text-center" ng-controller="viewController">
     <!-- <h1>{{ message }}</h1> -->
+    <h3>{{ message }}</h3>
+    <div class="ng-hide" ng-show="flag">
     <div class="row">
         <div class="col-md-6 col-md-offset-5">
             <h3>Enter workout details</h3>
@@ -16,15 +18,22 @@
 
                 <div class="form-group">
                     <label for="time">Time</label>
-                    <input type="text" ng-model="formData.time" id="time" placeholder="{{workout.time}}">
+                    <input type="time" ng-model="formData.time" id="time" placeholder="{{workout.time}}">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="date">Date</label>
-                    <input class="form-control" id="date" ng-model="formData.date" placeholder="{{workout.date}}" type="date"/>
+                    <input class="form-control" id="date" ng-model="formData.date" placeholder="{{workout.date | date: 'yyyy-MM-dd'}}" type="date"/>
                 </div>
                 <div class="form-group">
                     <label for="duration">Duration</label>
-                    <input type="text" ng-model="formData.duration" id="duration" placeholder="{{workout.duration}}"> mins
+                    <div class="input-group" id="duration">
+                        <input type="number"
+                               class="form-control"
+                               placeholder="{{workout.duration}}"
+                               ng-model="formData.duration"
+                               ng-style="{'width': 100 + 'px'}"
+                               min="1"> </input> mins
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="intensity">Intensity</label>
